@@ -1,0 +1,67 @@
+<script type="text/javascript">
+    /*global RED*/
+    RED.nodes.registerType('json-schema', {
+        category: 'function',
+        inputs: 1,
+        outputs: 1,
+        color: "#debd5c",
+        icon: "function.png",
+        paletteLabel: "json schema",
+        defaults: {
+            name: { value: "" },
+            func: { value: "" },
+            allErrors: { value: true },
+            useDefaults: { value: true },
+            coerceTypes: { value: true },
+            removeAdditional: { value: 'all' },
+            messages: { value: true }
+        },
+        label: function() {
+            return this.name || "JSON Schema";
+        },
+        oneditprepare: function() {
+            $("#node-input-func").typedInput({ type: "json" });
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="json-schema">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-func"><i class="fa fa-code"></i> JSON Schema</label>
+        <input type="text" id="node-input-func" placeholder="JSON Schema">
+    </div>
+    <div class="form-row">
+        <label for="node-input-allErrors"><i class="fa fa-exclamation-triangle"></i> All Errors</label>
+        <input type="checkbox" id="node-input-allErrors">
+    </div>
+    <div class="form-row">
+        <label for="node-input-useDefaults"><i class="fa fa-check-square"></i> Use Defaults</label>
+        <input type="checkbox" id="node-input-useDefaults">
+    </div>
+    <div class="form-row">
+        <label for="node-input-coerceTypes"><i class="fa fa-exchange"></i> Coerce Types</label>
+        <input type="checkbox" id="node-input-coerceTypes">
+    </div>
+    <div class="form-row">
+        <label for="node-input-removeAdditional"><i class="fa fa-trash"></i> Remove Additional</label>
+        <select id="node-input-removeAdditional">
+            <option value="all">All</option>
+            <option value="failing">Failing</option>
+            <option value="true">True</option>
+            <option value="false">False</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-messages"><i class="fa fa-comment"></i> Messages</label>
+        <input type="checkbox" id="node-input-messages">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="json-schema">
+    <p>Este nó valida mensagens JSON contra um esquema JSON definido.</p>
+    <p>Use as opções fornecidas para configurar o comportamento do validador Ajv.</p>
+</script>

@@ -1,0 +1,33 @@
+{
+    "name": "@ether/node-red-contrib-json-schema",
+    "version": "1.0.0",
+    "description": "JSON Schema validator for Node Red",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "schema",
+        "json",
+        "node-red",
+        "node"
+    ],
+    "node-red": {
+        "nodes": {
+            "json-schema": "schema.js"
+        }
+    },
+    "author": {
+        "name": "Mateus Macedo Dos Anjos"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "ajv": "^8.17.1"
+    },
+    "maintainers": [
+        {
+            "name": "mateusmacedo",
+            "email": "macedodosanjosmateus@gmail.com"
+        }
+    ]
+}
